@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { DateRangePicker } from 'react-date-range'
+import { DateRange } from 'react-date-range'
 
 import format from 'date-fns/format'
 import { addDays } from 'date-fns'
@@ -7,7 +7,7 @@ import { addDays } from 'date-fns'
 import 'react-date-range/dist/styles.css'
 import 'react-date-range/dist/theme/default.css'
 
-const DateRangePickerComp = () => {
+const DateRangeComp = () => {
 
   // date state
   const [range, setRange] = useState([
@@ -38,7 +38,7 @@ const DateRangePickerComp = () => {
     }
   }
 
-  // Hide dropdown on outside click
+  // Hide on outside click
   const hideOnClickOutside = (e) => {
     // console.log(refOne.current)
     // console.log(e.target)
@@ -59,12 +59,12 @@ const DateRangePickerComp = () => {
 
       <div ref={refOne}>
         {open && 
-          <DateRangePicker
+          <DateRange
             onChange={item => setRange([item.selection])}
             editableDateInputs={true}
             moveRangeOnFirstSelection={false}
             ranges={range}
-            months={2}
+            months={1}
             direction="horizontal"
             className="calendarElement"
           />
@@ -75,4 +75,4 @@ const DateRangePickerComp = () => {
   )
 }
 
-export default DateRangePickerComp
+export default DateRangeComp
